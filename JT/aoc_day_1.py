@@ -14,12 +14,8 @@ def word_to_digit(line):
 
         first_word_num = min(min_num_locations, key=min_num_locations.get)
         last_word_num =  max(max_num_locations, key=max_num_locations.get)
-        output = output[:min_num_locations[first_word_num]] + translation_dict[first_word_num] + output[min_num_locations[
-                                                                                                        first_word_num]:
-                                                                                                    max_num_locations[
-                                                                                                        last_word_num] + len(
-                                                                                                        last_word_num)] + \
-                 translation_dict[last_word_num] + output[max_num_locations[last_word_num] + len(last_word_num):]
+        output = output[:min_num_locations[first_word_num]] + translation_dict[first_word_num] + output[min_num_locations[first_word_num]:max_num_locations[last_word_num] + len(last_word_num)] + \
+                translation_dict[last_word_num] + output[max_num_locations[last_word_num] + len(last_word_num):]
 
 
     return output
