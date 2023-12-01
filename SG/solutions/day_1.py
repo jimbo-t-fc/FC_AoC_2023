@@ -49,7 +49,7 @@ class CalibrationUnscrambler:
                 else:
                     continue  # no numbers found
 
-                output_lines.append(f"{first_num}{last_num}")
+                output_lines.append(f"{first_num}{last_num}\n")
 
         with open(output_path, "w") as o:
             o.writelines(output_lines)
