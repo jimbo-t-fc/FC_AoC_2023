@@ -1,6 +1,4 @@
 def find_first_number(line, find):
-    numbers=''
-    options = len(find)
     read_char = 0
     search_list = []
     while read_char < len(line):
