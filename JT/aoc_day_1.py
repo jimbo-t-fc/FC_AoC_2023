@@ -8,19 +8,14 @@ def word_to_digit(line):
     max_num_locations = dict()
     for k in translation_dict.keys():
         if output.find(k) >= 0:
-            min_num_locations[k] = output.find(k)
-            max_num_locations[k] = max([index for index in range(len(output)) if output.startswith(k, index)])
+            locations = [index for index in range(len(output)) if output.startswith(k, index)]
+            min_num_locations[k] , max_num_locations[k] = min(locations), max(locations)
     if len(min_num_locations) > 0:
 
         first_word_num = min(min_num_locations, key=min_num_locations.get)
         last_word_num =  max(max_num_locations, key=max_num_locations.get)
-        output = output[:min_num_locations[first_word_num]] + translation_dict[first_word_num] + output[min_num_locations[
-                                                                                                        first_word_num]:
-                                                                                                    max_num_locations[
-                                                                                                        last_word_num] + len(
-                                                                                                        last_word_num)] + \
-                 translation_dict[last_word_num] + output[max_num_locations[last_word_num] + len(last_word_num):]
-
+        output = output[:min_num_locations[first_word_num]] + translation_dict[first_word_num] + output[min_num_locations[first_word_num]:max_num_locations[last_word_num] + len(last_word_num)] + \
+                translation_dict[last_word_num] + output[max_num_locations[last_word_num] + len(last_word_num):]
 
     return output
 
