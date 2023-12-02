@@ -43,7 +43,6 @@ if __name__ == '__main__':
     for game_name , details in new_game_details.items():
         if ('red' in details and max(details['red']) <= 12) and ('green' in details and max(details['green']) <= 13) and ('blue' in details and max(details['blue']) <= 14):
             possible_id_sum += int(game_name.split(' ')[1])
-    print(possible_id_sum)
 
     power_sum = 0
     for details in new_game_details.values():
@@ -54,5 +53,3 @@ if __name__ == '__main__':
 
     print(f'output 1 = {possible_id_sum}')
     print(f'output 2 = {power_sum}')
-
-
