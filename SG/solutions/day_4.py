@@ -26,10 +26,10 @@ def solution(input_dir, output_dir):
 
 def main(input_dir="../input", output_dir="../output"):
     res1, res2 = solution(input_dir, output_dir)
-    # print(res1)
-    # print(res2)
+    print(res1)
+    print(res2)
 
 
 if __name__ == "__main__":
-    print(sum(timeit.repeat(main, number=1000, repeat=3)) / 3 / 1000)
-    # main()
+    # print(sum(timeit.repeat(main, number=1000, repeat=3)) / 3 / 1000)
+    main()
