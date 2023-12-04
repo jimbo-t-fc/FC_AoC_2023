@@ -1,5 +1,4 @@
-import solutions.day_1
+import solutions.day_2
 
 if __name__ == "__main__":
-    solutions.day_1.main("input", "output")
-    
+    solutions.day_2.main("input", "output")
