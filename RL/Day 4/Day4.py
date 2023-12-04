@@ -1,13 +1,5 @@
 def part_1(cards):
-    scores = [0] * len(cards)
-    for i, card in cards.items():
-        score = 1
-        for _ in range(len(card[0])):
-            if scores[i-1] == 0:
-                scores[i-1] = 1
-            else:
-                scores[i-1] *= 2
-    return sum(scores)
+    return sum([2 ** (len(card[0]) - 1) for _, card in cards.items() if len(card[0]) > 0])
 
 
 def part_2(cards):
