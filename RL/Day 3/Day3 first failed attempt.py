@@ -1,7 +1,7 @@
 def check_num(array, y, x, direction):
     num=''
     loop=True
-    if direction == 'foward':
+    """ if direction == 'foward':
         while loop:
             digit_last=False
             char = array[symbol_y+y][symbol_x+x]
@@ -15,11 +15,11 @@ def check_num(array, y, x, direction):
                     sum+=int(num)
             elif 
             else:
-                x-=1
+                x-=1 """
 
 def sum_engine_parts(array,symbol_y,symbol_x):
     sum=0
-    for y in (-1,0,1):
+    """ for y in (-1,0,1):
         num=''
         loop=True
         x = 1
@@ -39,7 +39,7 @@ def sum_engine_parts(array,symbol_y,symbol_x):
                 x-=1
         
 
-        sum+=int(num)
+        sum+=int(num) """
     return sum
 
 
