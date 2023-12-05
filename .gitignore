@@ -1,2 +1,5 @@
 # PYC files
 *.pyc
+
+# VSCode
+.vscode
