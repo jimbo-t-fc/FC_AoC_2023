@@ -1,4 +1,5 @@
 from pathlib import Path
+import timeit
 
 
 def merge_ranges(initial, compare, replacement_start):
@@ -47,7 +48,7 @@ def solution(input_dir, output_dir, part):
                     unmapped += ru
                     mapped += rm
 
-    res = min([l[0] for l in unmapped + mapped])
+    res = min(unmapped + mapped)[0]
 
     return res
 
@@ -60,5 +61,5 @@ def main(input_dir="../input", output_dir="../output"):
 
 
 if __name__ == "__main__":
-    # print(sum(timeit.repeat(main, number=1000, repeat=3)) / 3 / 1000)
+    # print(sum(timeit.repeat(main, number=100, repeat=3)) / 3 / 100)
     main()
