@@ -81,6 +81,6 @@ def main():
 
 
 if __name__ == '__main__':
-   import timeit
-   print(sum(timeit.repeat(main, number=100, repeat=3)) / 3 / 100)
-   #main()
+   #import timeit
+   #print(sum(timeit.repeat(main, number=100, repeat=3)) / 3 / 100)
+   main()
