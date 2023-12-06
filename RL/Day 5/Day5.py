@@ -56,8 +56,8 @@ def find_next_seeds_2(seeds, maps):
     return new_seeds
 
 
-if __name__ == '__main__':
-    # Read the input file
+def main():
+     # Read the input file
     with open("2023/Day 5/input.txt",'r') as f:
         sections = [section for section in f.read().split('\n\n')]
     
@@ -69,11 +69,11 @@ if __name__ == '__main__':
 
     # PART 2
     seeds = [int(x) for x in sections[0].split(':')[1].split()]
-    seeds_2=[]
-    for x in range(0, len(seeds), 2):
-        seeds_2.append((seeds[x],seeds[x+1]))
+    seeds_2 = list(zip(seeds[::2], seeds[1::2]))
     for mapping in sections[1:]:
         seeds_2 = find_next_seeds_2(seeds_2,mapping.split('\n')[1:])
     print(f"Part 2: {min([seed[0] for seed in seeds_2])}")
-    
-    pass
+
+
+if __name__ == '__main__':
+   main()
