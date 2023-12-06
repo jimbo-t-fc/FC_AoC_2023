@@ -13,10 +13,8 @@ def solution(input_dir, output_dir, part):
             tds = zip(*[[int("".join(l.split(":")[1].split()))] for l in f.readlines()])
 
         for t, d in tds:
-            pos = (t + sqrt(t**2 - 4 * d)) / 2
-            neg = (t - sqrt(t**2 - 4 * d)) / 2
-            pos = pos - 1 if pos.is_integer() else floor(pos)
-            neg = neg + 1 if neg.is_integer() else ceil(neg)
+            pos = floor((t + sqrt(t**2 - 4 * (d + 1))) / 2)
+            neg = ceil((t - sqrt(t**2 - 4 * (d + 1))) / 2)
             res *= pos - neg + 1
 
     return res
