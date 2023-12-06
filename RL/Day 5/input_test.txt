@@ -1,0 +1,12 @@
+seeds: 10 27
+
+seed-to-soil map:
+20 8 5
+10 13 20
+3 35 10
+
+next 1 map:
+0 6 2
+
+next 2 map:
+100 1 6
