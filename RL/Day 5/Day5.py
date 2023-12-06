@@ -14,14 +14,19 @@ def find_next_seeds_1(seeds, maps):
 def find_next_seeds_2(seeds, maps):
     new_seeds = []
     for idx, s in enumerate(seeds):
-        for map in maps:
-            m = map.split()
-            dest, source, span = int(m[0]), int(m[1]), int(m[2])
+        for m in maps:
+            dest, source, span = map(int, m.split())
+            #              source  source+span
+            # map:            |-----|
+            #     s[0]  s[0]+s[1]     s[0]  s[0]+s[1]
+            # seed: |------|    OR     |------|
+            if s[0]+s[1] < source or s[0] > source+span:
+                continue
             #         source  source+span
             # map:       |-----|
             #     s[0]  s[0]+s[1]
             # seed: |------|
-            if s[0] < source and source <= s[0]+s[1] <= source+span:
+            elif s[0] < source and source <= s[0]+s[1] <= source+span:
                 seeds[idx] = (s[0], source-s[0]-1)
                 new_seeds.append((dest, (s[0]+s[1])-source))
                 s = ((s[0], source-s[0]-1))
@@ -76,4 +81,6 @@ def main():
 
 
 if __name__ == '__main__':
-   main()
+   import timeit
+   print(sum(timeit.repeat(main, number=100, repeat=3)) / 3 / 100)
+   #main()
