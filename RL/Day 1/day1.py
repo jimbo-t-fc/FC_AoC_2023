@@ -62,28 +62,3 @@ if __name__ == '__main__':
             
         calval.append(int(n))
     print(sum(calval))
-
-    pass
-
-
-
-
-    
-#     calval = []
-#     for line in lines:
-#         line_numbers = ''
-#         for character in line:
-#             if character.isdigit():
-#                 line_numbers+=character
-
-#         if len(line_numbers) == 1:
-#             coord = int(line_numbers+line_numbers)
-#         elif len(line_numbers) > 2:
-#             coord = int(line_numbers[0]+line_numbers[-1])
-#         else:
-#             coord = int(line_numbers)
-#         calval.append(coord)
-#     print(sum(calval))
-
-
-    #rev_lines = [x[::-1] for x in lines]
