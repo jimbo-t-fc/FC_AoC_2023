@@ -1,5 +1,4 @@
 from pathlib import Path
-from functools import reduce
 
 
 def solution(input_dir, output_dir, p1):
@@ -7,15 +6,11 @@ def solution(input_dir, output_dir, p1):
 
     res = 0
     for d in open(input_file).read().split("\n"):
-        diffs = [list(map(int, d.split()))]
+        diffs = [list(map(int, d.split()))[:: (p1 or -1)]]  # p2 = p1 reversed
         for nums in diffs:
             if sum(nums) != 0:
                 diffs.append([j - i for j, i in zip(nums[1:], nums[:-1])])
-
-        if p1:
-            res += sum([ds[-1] for ds in diffs])
-        else:
-            res += reduce(lambda x, y: [y[0] - x[0]], reversed(diffs))[0]
+        res += sum([ds[-1] for ds in diffs])
 
     return res
 
