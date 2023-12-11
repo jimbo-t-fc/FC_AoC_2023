@@ -23,14 +23,17 @@ def print_universe(universe):
 
 
 def main():
-    with open("2023/Day 11/input_test.txt",'r') as f:
+    with open("2023/Day 11/input.txt",'r') as f:
         universe = [(x,y) for y, line in enumerate(f.read().split('\n')) if line!='' for x, gc in enumerate(line) if gc=='#']
 
+    # print_universe(universe)
     expanded_universe = expand_universe(universe, 1)
+    # print_universe(expanded_universe)
     pt1 = galaxy_distance(expanded_universe)
     print(f"Part 1: {pt1}")
 
-    expanded_universe = expand_universe(universe, 100)
+    expanded_universe = expand_universe(universe, 999999)
+    # print_universe(expanded_universe)
     pt2 = galaxy_distance(expanded_universe)
     print(f"Part 2: {pt2}")
     return
