@@ -25,12 +25,11 @@ def solution(input_dir, output_dir, p1):
         for c2 in coords[idx + 1 :]:
             d = abs(c2[0] - c1[0]) + abs(c2[1] - c1[1])
             for ec in ecs:
-                if (c1[1] < ec < c2[1]) or (c2[1] < ec < c1[1]):
+                if min(c1[1], c2[1]) < ec < max(c1[1], c2[1]):
                     d += 1 if p1 else 999999
             for er in ers:
-                if (c1[0] < er < c2[0]) or (c2[0] < er < c1[0]):
+                if min(c1[0], c2[0]) < er < max(c1[0], c2[0]):
                     d += 1 if p1 else 999999
-
             res += d
 
     return res
