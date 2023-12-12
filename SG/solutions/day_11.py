@@ -1,5 +1,4 @@
 from pathlib import Path
-from itertools import combinations
 
 
 def solution(input_dir, output_dir, p1):

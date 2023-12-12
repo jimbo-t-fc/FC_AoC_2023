@@ -21,7 +21,7 @@ def solution(input_dir, output_dir):
         "F": [(1, 0), (0, 1)],
     }
     
-    curs = ((start[0]+1, start[1]), (start[0], start[1]+1), (start[0]-1, start[1]), (start[0], start[1]-1))
+    curs = ((start[0]+dx, start[1]+dy) for dx in (-1, 1) for dy in (-1, 1))
 
     for cur in curs:
         prev = stop = start
@@ -56,7 +56,7 @@ def solution(input_dir, output_dir):
                 if col.replace("S", spipe) in "|F7":
                     bends += 1
             elif bends % 2:
-                a += 1
+                res2 += 1
 
     return res1, res2
 
