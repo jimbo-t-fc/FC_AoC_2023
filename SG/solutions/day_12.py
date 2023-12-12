@@ -10,28 +10,22 @@ def solution(input_dir, output_dir, p1):
 
     @lru_cache
     def count_ways(lh, lr):
-        if len(lh) == 0:
-            return 1 if len(lr) == 0 else 0
-        if len(lr) == 0:
+        if not lh:
+            return 1 if not lr else 0
+        if not lr:
             return 1 if not any("#" in h for h in lh) else 0
-
         if len(lh[0]) < lr[0]:
             return count_ways(lh[1:], lr) if not "#" in lh[0] else 0
-        
         if lh[0] == "":
             return count_ways(lh[1:], lr)
-
         if lh[0][0] == "#":
-            if len(lr) == 0:
-                return 0
             if len(lh[0]) == lr[0]:
                 return count_ways(lh[1:], lr[1:])
             if lh[0][lr[0]] == "#":
                 return 0
-
-            ln = lh[0][lr[0]+1:], *lh[1:]
+            ln = lh[0][lr[0] + 1 :], *lh[1:]
             return count_ways(ln, lr[1:])
-        elif lh[0][0] == "?":
+        if lh[0][0] == "?":
             ln1 = lh[0].replace("?", "#", 1), *lh[1:]
             ln2 = lh[0].replace("?", "", 1), *lh[1:]
             return count_ways(ln1, lr) + count_ways(ln2, lr)
@@ -45,7 +39,7 @@ def solution(input_dir, output_dir, p1):
         hs = tuple(h for h in hs.split(".") if h != "")
         r = tuple(map(int, r.split(",")))
         res += count_ways(hs, r)
-            
+
     return res
 
 
