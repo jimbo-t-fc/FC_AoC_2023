@@ -43,7 +43,6 @@ def main():
     for pattern in patterns:
         pt2 += 100*find_reflection_with_smudge(pattern)
         pt2 += find_reflection_with_smudge(transpose(pattern))
-        #pt2 += min(pt21 if pt21 > 0 else pt22,pt22 if pt22 > 0 else pt21)
     print(f"Part 2: {pt2}")
     return
 
