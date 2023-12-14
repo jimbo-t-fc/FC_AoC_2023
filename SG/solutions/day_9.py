@@ -8,7 +8,7 @@ def solution(input_dir, output_dir, p1):
     for d in open(input_file).read().split("\n"):
         diffs = [list(map(int, d.split()))[:: (p1 or -1)]]  # p2 = p1 reversed
         for nums in diffs:
-            if sum(nums) != 0:
+            if any(nums):
                 diffs.append([j - i for j, i in zip(nums[1:], nums[:-1])])
         res += sum([ds[-1] for ds in diffs])
 
