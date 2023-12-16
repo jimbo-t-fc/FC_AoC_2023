@@ -1,5 +1,4 @@
 from pathlib import Path
-from functools import reduce
 
 
 def solution(input_dir, output_dir, p1):
