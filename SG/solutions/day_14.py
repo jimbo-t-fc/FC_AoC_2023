@@ -28,9 +28,7 @@ def solution(input_dir, output_dir, p1):
                 cur = rock[ns]
 
             cubes = (
-                r + mult
-                for r in rocks["#"][ns][cur]
-                if (mult * (r - rock[not ns]) < 0)
+                r + mult for r in rocks["#"][ns][cur] if (mult * (r - rock[not ns]) < 0)
             )
             rock[not ns] = (
                 min(free, *cubes, default) if se else max(free, *cubes, default)

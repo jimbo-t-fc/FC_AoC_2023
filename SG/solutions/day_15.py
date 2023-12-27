@@ -21,10 +21,13 @@ def solution(input_dir, output_dir, p1):
         d, n = d.split(c)
         box = boxes[hsh]
 
-        if c == "-": box.pop(d, None)
-        elif c == "=": box |= {d: int(n)}
+        if c == "-":
+            box.pop(d, None)
+        elif c == "=":
+            box |= {d: int(n)}
 
-    if p1: return res
+    if p1:
+        return res
 
     res = 0
     for b, l in boxes.items():
