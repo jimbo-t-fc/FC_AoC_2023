@@ -16,15 +16,15 @@ def solution(input_dir, output_dir, p1):
         for mir in data:
             for idx, ml in enumerate(mir):
                 if (mls := smudge(ml, mir[idx - 1]) and not p1) or (ml == mir[idx - 1]):
-                    match, diffs = True, mls
+                    match, smudged = True, mls
                     for i in range(idx - 1):
                         ridx = idx + (idx - 1 - i)
                         if ridx < len(mir) and mir[i] != mir[ridx]:
-                            if not p1 and not diffs and smudge(mir[i], mir[ridx]):
-                                diffs = True
+                            if not p1 and not smudged and smudge(mir[i], mir[ridx]):
+                                smudged = True
                             else:
                                 match = False
-                    if match and (p1 or diffs):
+                    if match and (p1 or smudged):
                         res += idx * 100 if by_rows else idx
 
     return res

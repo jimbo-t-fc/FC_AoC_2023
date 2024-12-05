@@ -1,12 +1,13 @@
 from pathlib import Path
 import math
 
+
 def solution(input_dir, output_dir, part):
     input_file = Path(input_dir) / "day_8_input.txt"
 
     res = None
     with open(input_file, "r") as f:
-        ins, maps = f.read().split('\n\n')
+        ins, maps = f.read().split("\n\n")
         ins = ins.replace("L", "0").replace("R", "1")
 
         all_maps = {}
@@ -29,11 +30,13 @@ def solution(input_dir, output_dir, part):
 
     return math.lcm(*steps)
 
+
 def main(input_dir="../input", output_dir="../output"):
     res1 = solution(input_dir, output_dir, "p1")
     res2 = solution(input_dir, output_dir, "p2")
     print("Part 1:", res1)
     print("Part 2:", res2)
+
 
 if __name__ == "__main__":
     main()
